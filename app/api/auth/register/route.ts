@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
       { message: "User register Successfully" },
       { status: 200 }
     );
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "failed to register" }, { status: 500 });
   }
 }

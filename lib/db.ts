@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { buffer } from "stream/consumers";
+
 
 const MONGO_URI=process.env.MONGO_URI!
 
@@ -31,9 +31,10 @@ export async function connectToDatabase(){
 
     try {
         cached.conn=await cached.promise
-    } catch (error) {
+    } catch (err) {
         cached.promise=null
-        throw new Error("check database file")
+        console.log(err);
+        
     }
     return cached.conn
 
